@@ -3,9 +3,6 @@ import { Component } from "react";
 const imgSize = { width: "100px" };
 
 export default class ListItem extends Component {
-  constructor() {
-    super();
-  }
   render() {
     return (
       <div

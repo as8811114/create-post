@@ -1,9 +1,9 @@
 import "./App.css";
 import { Component } from "react";
-import { v4 as uuidv4 } from "uuid";
-import ListItem from "./ListItem";
-import Form from "./Form";
 
+import List from "./List";
+import Form from "./Form";
+import { Routes, Route, useNavigate } from "react-router-dom";
 class App extends Component {
   constructor() {
     super();
@@ -13,6 +13,7 @@ class App extends Component {
     };
   }
   setData = (key, value) => {
+    console.log(`set${key} : ${value}`);
     this.setState({
       data: { ...this.state.data, [key]: value },
     });
@@ -23,8 +24,10 @@ class App extends Component {
     this.setState({
       contentsList: newList,
     });
+    console.log(this.state.contentsList);
     //reset Form
     this.resetForm();
+    this.props.navigation("/list");
   };
   resetForm = () => {
     this.setState({
@@ -35,7 +38,6 @@ class App extends Component {
       },
     });
     document.getElementById("imgFile").value = "";
-    console.log(this.props.data);
   };
   removeData = () => {
     if (this.state.contentsList.length > 0) {
@@ -45,41 +47,38 @@ class App extends Component {
       );
       this.setState({ contentsList: newList });
     }
+    this.props.navigation("/list");
   };
+
   render() {
     return (
       <div>
         <div>
-          <Form
-            setData={this.setData}
-            postData={this.postData}
-            removeData={this.removeData}
-            data={this.state.data}
-            contentsList={this.state.contentsList}
-          />
-          <hr></hr>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            {this.state.contentsList.map((list, i) => {
-              return (
-                <ListItem
-                  key={uuidv4()}
-                  title={list.title}
-                  content={list.content}
-                  imgUrl={list.imgUrl}
+          <Routes>
+            <Route
+              path="/create-post"
+              element={
+                <Form
+                  setData={this.setData}
+                  postData={this.postData}
+                  removeData={this.removeData}
+                  data={this.state.data}
+                  contentsList={this.state.contentsList}
                 />
-              );
-            })}
-          </div>
+              }
+            />
+            <Route
+              path="/list"
+              element={<List contentsList={this.state.contentsList} />}
+            ></Route>
+          </Routes>
         </div>
       </div>
     );
   }
 }
+export default function AppF(props) {
+  const navigation = useNavigate();
 
-export default App;
+  return <App {...props} navigation={navigation} />;
+}

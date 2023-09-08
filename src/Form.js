@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 const s = { padding: "20px" };
 const imgSize = { width: "100px" };
 export default class Form extends Component {
@@ -19,6 +20,7 @@ export default class Form extends Component {
           console.log(this.props.contentsList);
         }}
       >
+        <Link to={"/list"}>Go to List Page</Link>
         <div style={s}>Title:</div>
         <input
           style={{ width: "75%", maxWidth: "500px" }}
