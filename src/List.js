@@ -12,7 +12,7 @@ export default class List extends Component {
           alignItems: "center",
         }}
       >
-        <Link to={"/create-post"}>Go to Create Post Page</Link>
+        <Link to={"/post"}>Go to Create Post Page</Link>
         <div>Contents:</div>
         {this.props.contentsList.map((list, i) => {
           return (

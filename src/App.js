@@ -56,7 +56,7 @@ class App extends Component {
         <div>
           <Routes>
             <Route
-              path="/create-post"
+              path="/post"
               element={
                 <Form
                   setData={this.setData}
