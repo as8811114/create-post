@@ -20,7 +20,7 @@ export default class Form extends Component {
           console.log(this.props.contentsList);
         }}
       >
-        <Link to={"/list"}>Go to List Page</Link>
+        <Link to={"/"}>Go to List Page</Link>
         <div style={s}>Title:</div>
         <input
           style={{ width: "75%", maxWidth: "500px" }}

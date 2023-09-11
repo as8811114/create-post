@@ -27,7 +27,7 @@ class App extends Component {
     console.log(this.state.contentsList);
     //reset Form
     this.resetForm();
-    this.props.navigation("/list");
+    this.props.navigation("/");
   };
   resetForm = () => {
     this.setState({
@@ -47,7 +47,7 @@ class App extends Component {
       );
       this.setState({ contentsList: newList });
     }
-    this.props.navigation("/list");
+    this.props.navigation("/");
   };
 
   render() {
@@ -68,7 +68,7 @@ class App extends Component {
               }
             />
             <Route
-              path="/list"
+              path="/"
               element={<List contentsList={this.state.contentsList} />}
             ></Route>
           </Routes>
