@@ -24,6 +24,13 @@ export default class ListItem extends Component {
             style={imgSize}
           ></img>
         )}
+        <button
+          onClick={() => {
+            this.props.removeData(this.props.index);
+          }}
+        >
+          remove
+        </button>
       </div>
     );
   }

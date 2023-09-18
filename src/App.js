@@ -39,15 +39,12 @@ class App extends Component {
     });
     document.getElementById("imgFile").value = "";
   };
-  removeData = () => {
+  removeData = (index) => {
     if (this.state.contentsList.length > 0) {
-      const newList = this.state.contentsList.slice(
-        0,
-        this.state.contentsList.length - 1
-      );
+      let newList = this.state.contentsList.map((data) => data);
+      newList.splice(index, 1);
       this.setState({ contentsList: newList });
     }
-    this.props.navigation("/");
   };
 
   render() {
@@ -61,7 +58,6 @@ class App extends Component {
                 <Form
                   setData={this.setData}
                   postData={this.postData}
-                  removeData={this.removeData}
                   data={this.state.data}
                   contentsList={this.state.contentsList}
                 />
@@ -69,7 +65,12 @@ class App extends Component {
             />
             <Route
               path="/"
-              element={<List contentsList={this.state.contentsList} />}
+              element={
+                <List
+                  contentsList={this.state.contentsList}
+                  removeData={this.removeData}
+                />
+              }
             ></Route>
           </Routes>
         </div>

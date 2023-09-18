@@ -21,6 +21,8 @@ export default class List extends Component {
               title={list.title}
               content={list.content}
               imgUrl={list.imgUrl}
+              removeData={this.props.removeData}
+              index={i}
             />
           );
         })}

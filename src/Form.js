@@ -81,7 +81,6 @@ export default class Form extends Component {
           >
             submit
           </button>
-          <button onClick={this.props.removeData}>remove</button>
         </div>
       </form>
     );
