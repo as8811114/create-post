@@ -76,7 +76,6 @@ export default class Form extends Component {
             onClick={() => {
               this.props.postData();
               this.setState({ hasImage: false });
-              document.getElementById("imgFile").value = "";
             }}
           >
             submit
