@@ -1,6 +1,4 @@
-function A() {
-  console.log("A");
-}
+function A() {}
 
 function C() {
   console.log("C");
