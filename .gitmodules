@@ -1,0 +1,6 @@
+[submodule "webcam"]
+	path = webcam
+	url = https://github.com/as8811114/webcam.git
+[submodule "PCUILayout"]
+	path = PCUILayout
+	url = https://github.com/as8811114/PCUILayout
