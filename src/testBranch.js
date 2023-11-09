@@ -1,3 +1,5 @@
-function A() {}
+function A() {
+  console.log("A");
+}
 
 function C() {}
